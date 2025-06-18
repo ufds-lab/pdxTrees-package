@@ -83,8 +83,8 @@ courses](https://www.reed.edu/math/courses.html) as a tool to help
 students develop their data analysis skills in
 [RStudio](https://rstudio.com/). In Introduction to Probability and
 Statistics, students wrangle `pdxTrees` data with `dplyr`, and create
-graphs of `pdxTrees` with `ggplot2`. In the [Data Science
-course](https://github.com/Reed-Statistics/math241s20), the package is
+graphs of `pdxTrees` with `ggplot2`. In the Data Science
+course, the package is
 used to teach best practices of function writing, to construct
 interactive maps with `leaflet`, and to showcase the usefulness of
 `lubridate`, along with many other R packages.
