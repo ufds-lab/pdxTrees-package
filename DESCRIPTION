@@ -1,6 +1,6 @@
 Package: pdxTrees
 Title: Data Package of Portland, Oregon Trees
-Version: 0.4.1
+Version: 0.5.0
 Authors@R: 
    c(person("Kelly",
            "McConville",
