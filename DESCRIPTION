@@ -1,11 +1,11 @@
 Package: pdxTrees
 Title: Data Package of Portland, Oregon Trees
-Version: 0.4.0
+Version: 0.4.1
 Authors@R: 
    c(person("Kelly",
            "McConville",
            role = c("aut", "cre"),
-           email = "mcconville@reed.edu"), 
+           email = "k.mcconville@bucknell.edu"), 
      person("Isabelle",
            "Caldwell",
            role = c("aut"),
@@ -18,16 +18,16 @@ Authors@R:
             "Horton",
             role = c("ctb"),
             email = "nhorton@amherst.edu"))
-Maintainer: Kelly McConville <mcconville@reed.edu>
+Maintainer: Kelly McConville <k.mcconville@bucknell.edu>
 Description: An engaging collection of datasets from Portland Parks and Recreation. The city of Portland inventoried every tree in over 170 parks and along the streets in 96 neighborhoods. 
 Depends:
     R (>= 3.1)
 License: GPL-3
-Encoding:UTF-8
+Encoding: UTF-8
 LazyData: true
 URL: https://github.com/mcconvil/pdxTrees
 BugReports: https://github.com/mcconvil/pdxTrees/issues
-RoxygenNote: 7.1.1
+RoxygenNote: 7.3.3
 Suggests: 
     knitr,
     rmarkdown, 
@@ -46,5 +46,3 @@ Imports:
     magrittr,
     rlang, 
     dplyr
-
-

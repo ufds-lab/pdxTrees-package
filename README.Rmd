@@ -20,7 +20,7 @@ output: github_document
 The street trees are categorized by one of the 96 Portland neighborhoods and the park trees are categorized by the public parks in which they grow. 
 
 
-These data were collected by the [Portland Parks and Recreation's Urban Forestry Tree Inventory Project](https://www.portlandoregon.gov/parks/53181). The Tree Inventory Project has gathered data on Portland trees since 2010, collecting this data in the summer months with a team of over 1,300 volunteers and city employees. The streets trees were inventoried from 2010 to 2016, and the park trees were inventoried from 2017 to 2019. More information on the data can be found [here](https://www.portlandoregon.gov/parks/article/501565).
+These data were collected by the [Portland Parks and Recreation's Urban Forestry Tree Inventory Project](https://www.portland.gov/trees/get-involved/tree-inventory#toc-street-tree-inventory). The Tree Inventory Project has gathered data on Portland trees since 2010, collecting this data in the summer months with a team of over 1,300 volunteers and city employees. The streets trees were inventoried from 2010 to 2016, and the park trees were inventoried from 2017 to 2019. More information on the data can be found [here](https://www.portland.gov/trees/get-involved/tree-inventory#toc-street-tree-inventory).
 
 
 
@@ -78,7 +78,8 @@ neighborhoods <- get_pdxTrees_streets(neighborhood = c("Concordia",
 
 ## Teaching with `pdxTrees`
 
-`pdxTrees` is used in multiple [Reed College statistics courses](https://www.reed.edu/math/courses.html) as a tool to help students develop their data analysis skills in [RStudio](https://rstudio.com/). In Introduction to Probability and Statistics, students wrangle `pdxTrees` data with `dplyr`, and create graphs of `pdxTrees` with `ggplot2`. In the [Data Science course](https://github.com/Reed-Statistics/math241s20), the package is used to teach best practices of function writing, to construct interactive maps with `leaflet`, and to showcase the usefulness of `lubridate`, along with many other R packages. 
+`pdxTrees` is used in multiple courses as a tool to help students develop their data analysis skills using `R`. In courses, students have used the data to wrangle with `dplyr`, create graphs with `ggplot2`, and create interactive maps with `leaflet`.  It is also featured in [Modern Data Science with R](https://mdsr-book.github.io/mdsr3e/) by Ben Baumer, Daniel Kaplan, and Nicholas Horton.
+
 
 
 
