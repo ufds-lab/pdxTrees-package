@@ -1,5 +1,6 @@
 # Libraries
 library(tidyverse)
+install.packages("sf")
 library(sf)
 
 #############################################
