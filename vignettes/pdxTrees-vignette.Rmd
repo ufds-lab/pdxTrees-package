@@ -32,7 +32,8 @@ Here are some examples of the different ways `pdxTrees` can be used in an educat
 
 # Loading the required libraries
 
-library(pdxTrees) 
+install.packages("pdxTrees") 
+library(pdxTrees)
 library(ggplot2)
 library(dplyr)
 library(forcats)
