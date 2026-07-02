@@ -1,6 +1,5 @@
 # Libraries
 library(tidyverse)
-install.packages("sf")
 library(sf)
 
 #############################################
@@ -143,4 +142,5 @@ usethis::use_data(pdxTrees_parks, overwrite = TRUE,
 #                  compress = "xz", version = 2)
 usethis::use_data(pdxTrees_streets, overwrite = TRUE,
                   compress = "xz", version = 2)
+
 
