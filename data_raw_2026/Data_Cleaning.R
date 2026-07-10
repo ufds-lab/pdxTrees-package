@@ -3,9 +3,8 @@ library(sf)
 library(utils)
 library(lubridate)
 
-Street_Trees_2026 <- readRDS("data_raw/STI_v2_FINAL_dataset_public.rds")
-add_streetrees <- utils::read.csv("data_raw/Street_Tree_Inventory.csv")
-Park_Trees_2026 <- utils::read.csv("data_raw/Parks_Tree_Inventory.csv")
+Street_Trees_2026 <- readRDS("data_raw_2026/STI_v2_FINAL_dataset_public.rds")
+Park_Trees_2026 <- utils::read.csv("data_raw_2026/Parks_Tree_Inventory.csv")
 
 #############################################
 # pdxTrees_parks
@@ -34,7 +33,7 @@ Park_Trees_2026 <- Park_Trees_2026 %>%
          UserID = as.character(UserID)) 
 
 #Matching Property IDs to parks 
-Park_PropID <- utils::read.csv("data_raw/Matching_PropID.csv")
+Park_PropID <- utils::read.csv("data_raw_2026/Matching_PropID.csv")
 Park_PropID <- dplyr::select(Park_PropID, -c("OBJECTID", "ACRES", "Shape_Length", "Shape_Area"))
 Park_Trees_2026 <- dplyr::left_join(Park_Trees_2026, Park_PropID, by = c("PropertyID" = "PROPERTYID"))
 
@@ -77,21 +76,6 @@ add_edible <- Park_Trees_2026 %>%
   unique(.)
 Street_Trees_2026 <- dplyr::left_join(Street_Trees_2026, add_edible, by = c("SPECIES_CO" = "Common_Name"))
 
-add_streetrees <- add_streetrees %>% 
-  dplyr::mutate(Inventory_Date = as.Date(lubridate::ymd_hms(Date_Inventoried, truncated = 3))) %>% 
-  dplyr::select(-c("OBJECTID", "X", "Y", "MATURE_SIZE", "Date_Inventoried", "Wires", "Condition", "Neighborhood", "FUNCTIONAL_TYPE", "SPECIES")) %>% 
-  dplyr::rename("DBH_IE_DIA" = "DIAMETER")
-
-#joins
-Street_Trees_2026 <- dplyr::left_join(Street_Trees_2026, add_streetrees, 
-                                      by = join_by(DBH_IE_DIA, DATE_INVEN == Inventory_Date, ADDRESS == Address), 
-                                      relationship = "many-to-many")
-#binds
-#Street_Trees_2026 <- dplyr::bind_rows(Street_Trees_2026, add_streetrees)
-
-Street_Trees_2026 <- Street_Trees_2026 %>% 
-  dplyr::select(-FUNCTIONAL)
-
 # add lat and long 
 Street_Trees_2026 <- Street_Trees_2026 %>%
   sf::st_as_sf(crs = 3857, coords = c("X", "Y"))
@@ -117,13 +101,12 @@ Street_Trees_2026 <- Street_Trees_2026 %>%
       "Large" = "L"),
     MATURE_SIZ = factor(MATURE_SIZ, levels = c("S", "M", "L"))) %>% 
   dplyr::select(c("OG_OBJECTI", "DATE_INVEN", "Species", "DBH_IE_DIA", 
-                   "CONDITION", "Site_Type", "Site_Width", "OVERHEAD_W", 
-                   "SITE_IMPROVEMENT", "Site_Size", "ADDRESS", "Neighborhood", 
+                   "CONDITION", "OVERHEAD_W", "ADDRESS", "Neighborhood", 
                    "SPECIES_SC", "FAMILY", "GENUS_SCIE", "GENUS_COMM", "Functional_type",
                   "Edible", "Longitude", "Latitude", "MATURE_SIZ")) %>% 
   dplyr::rename("UserID" = "OG_OBJECTI", "Inventory_Date" = "DATE_INVEN",
                 "DBH" = "DBH_IE_DIA", "Condition" = "CONDITION", "Wires" = "OVERHEAD_W", 
-                "Site_Development" = "SITE_IMPROVEMENT", "Address" = "ADDRESS", "Scientific" = "SPECIES_SC",
+                , "Address" = "ADDRESS", "Scientific" = "SPECIES_SC",
                 "Family" = "FAMILY", "Genus" = "GENUS_SCIE", "Common_Name" = "GENUS_COMM", 
                 "Mature_Size" = "MATURE_SIZ")
 
